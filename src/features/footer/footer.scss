@@ -1,0 +1,14 @@
+.footer {
+  padding: var(--space-s) 0;
+
+  box-shadow: var(--box-shadow-primary);
+
+  &__container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: max-content;
+
+    align-items: center;
+    gap: var(--space-xs);
+  }
+}

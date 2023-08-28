@@ -1,0 +1,13 @@
+{
+    "cSpell.words": [
+        "combobox",
+        "freelist",
+        "multilines",
+        "reduxjs",
+        "Shadowrun"
+    ],
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "stylelint.validate": ["css", "scss"]
+}

@@ -1,0 +1,24 @@
+.header {
+  position: sticky;
+  top: 0;
+
+  background-color: var(--background-primary);
+
+  box-shadow: var(--box-shadow-primary);
+
+  &__container {
+    padding: var(--space-s) 0;
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto 1fr auto;
+
+    align-items: center;
+    gap: var(--space-m);
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+  }
+}
