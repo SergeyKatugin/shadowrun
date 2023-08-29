@@ -14,6 +14,7 @@ import ResourceCreateComponent from './features/create/resource/resource-create.
 import SkillCreateComponent from './features/create/skill/skill-create.component';
 import FooterComponent from './features/footer/footer.component';
 import HeaderComponent from './features/header/header.component';
+import ModalsComponent from './features/modal/modals.component';
 
 import './app.scss';
 
@@ -33,6 +34,8 @@ const router = createBrowserRouter([
         <footer>
           <FooterComponent />
         </footer>
+
+        <ModalsComponent />
       </>
     ),
     children: [

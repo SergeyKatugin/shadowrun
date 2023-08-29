@@ -15,7 +15,7 @@ const HeaderComponent = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={`container vertical-container ${cn()}`}>
+    <div className={`container ${cn()}`}>
       <div className={cn('container')}>
         <IconHamburger size="s" />
         <Text>Shadowrun</Text>

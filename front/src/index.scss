@@ -41,6 +41,8 @@ input {
 
 main {
   flex: 1;
+
+  overflow-y: auto;
 }
 
 body {
@@ -112,5 +114,11 @@ button {
 .align-self {
   &-end {
     align-self: flex-end;
+  }
+}
+
+.white-space {
+  &_pre-line {
+    white-space: pre-line;
   }
 }
