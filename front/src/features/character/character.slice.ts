@@ -2,25 +2,15 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
 import {
-  CharacterGender,
+  Character,
   CharacterMageType,
   CharacterPriority,
   CharacterPriorityPayload,
 } from './character.type';
 
-export type CharacterState = {
-  name: string;
-  description: string;
-  gender: CharacterGender;
-  appearance: string;
-  requiredErrors: string[];
-  mageType: CharacterMageType;
-  priority: CharacterPriority | null;
-};
-
 const characterFromLocalStorage = localStorage.getItem('character');
 
-let initialState: CharacterState = {
+let initialState: Character = {
   name: '',
   description: '',
   gender: null,
@@ -38,68 +28,65 @@ export const characterSlice = createSlice({
   name: 'character',
   initialState,
   reducers: {
-    setCharacter: (
-      state: CharacterState,
-      action: PayloadAction<CharacterState>,
-    ) => {
+    setCharacter: (state: Character, action: PayloadAction<Character>) => {
       return action.payload;
     },
     setCharacterName: (
-      state: CharacterState,
-      action: PayloadAction<CharacterState['name']>,
+      state: Character,
+      action: PayloadAction<Character['name']>,
     ) => {
       state.name = action.payload;
     },
     setCharacterDescription: (
-      state: CharacterState,
-      action: PayloadAction<CharacterState['description']>,
+      state: Character,
+      action: PayloadAction<Character['description']>,
     ) => {
       state.description = action.payload;
     },
     setCharacterGender: (
-      state: CharacterState,
-      action: PayloadAction<CharacterState['gender']>,
+      state: Character,
+      action: PayloadAction<Character['gender']>,
     ) => {
       state.gender = action.payload;
     },
     setCharacterAppearance: (
-      state: CharacterState,
-      action: PayloadAction<CharacterState['appearance']>,
+      state: Character,
+      action: PayloadAction<Character['appearance']>,
     ) => {
       state.appearance = action.payload;
     },
-    appendCharacterError: (
-      state: CharacterState,
-      action: PayloadAction<string>,
-    ) => {
+    appendCharacterError: (state: Character, action: PayloadAction<string>) => {
       state.requiredErrors.push(action.payload);
     },
-    resetCharacterError: (
-      state: CharacterState,
-      action: PayloadAction<string>,
-    ) => {
+    resetCharacterError: (state: Character, action: PayloadAction<string>) => {
       state.requiredErrors = state.requiredErrors.filter(
         (error) => error !== action.payload,
       );
     },
     setCharacterMageType: (
-      state: CharacterState,
+      state: Character,
       action: PayloadAction<CharacterMageType>,
     ) => {
       state.mageType = action.payload;
     },
     setCharacterPriority: (
-      state: CharacterState,
+      state: Character,
       action: PayloadAction<CharacterPriorityPayload>,
     ) => {
-      const { level, priority } = action.payload;
+      const { level, key, priority } = action.payload;
 
       if (!state.priority) {
         state.priority = {
-          [level]: priority,
+          [level]: {
+            [key]: priority,
+          },
         } as CharacterPriority;
       } else {
-        state.priority[level] = priority;
+        state.priority = {
+          [level]: {
+            [key]: priority,
+          },
+        } as CharacterPriority;
       }
     },
   },

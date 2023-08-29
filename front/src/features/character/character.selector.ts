@@ -2,45 +2,45 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import { RootState } from '../../store';
 
-import { CharacterState } from './character.slice';
+import { Character } from './character.type';
 
 export const selectorCharacter = createSelector(
   (state: RootState) => state.character,
-  (character: CharacterState) => character,
+  (character: Character) => character,
 );
 
 export const selectorCharacterName = createSelector(
   (state: RootState) => state.character.name,
-  (name: CharacterState['name']) => name,
+  (name: Character['name']) => name,
 );
 
 export const selectorCharacterDescription = createSelector(
   (state: RootState) => state.character.description,
-  (description: CharacterState['description']) => description,
+  (description: Character['description']) => description,
 );
 
 export const selectorCharacterGender = createSelector(
   (state: RootState) => state.character.gender,
-  (gender: CharacterState['gender']) => gender,
+  (gender: Character['gender']) => gender,
 );
 
 export const selectorCharacterAppearance = createSelector(
   (state: RootState) => state.character.appearance,
-  (appearance: CharacterState['appearance']) => appearance,
+  (appearance: Character['appearance']) => appearance,
 );
 
 export const selectorCharacterMageType = createSelector(
   (state: RootState) => state.character.mageType,
-  (mageType: CharacterState['mageType']) => mageType,
+  (mageType: Character['mageType']) => mageType,
 );
 
 export const selectorCharacterIsNameErrorRequired = createSelector(
   (state: RootState) => state.character.requiredErrors,
-  (errors: CharacterState['requiredErrors']) =>
+  (errors: Character['requiredErrors']) =>
     errors.find((error) => error === 'name'),
 );
 
 export const selectorCharacterPriority = createSelector(
   (state: RootState) => state.character.priority,
-  (priority: CharacterState['priority']) => priority,
+  (priority: Character['priority']) => priority,
 );

@@ -1,10 +1,5 @@
 .priority {
   &__item {
-    display: flex;
-    gap: var(--space-s);
-
-    align-items: baseline;
-
-    height: 30px;
+    min-height: 30px;
   }
 }
