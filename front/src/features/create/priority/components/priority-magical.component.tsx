@@ -6,6 +6,7 @@ import { Text } from '@consta/uikit/Text';
 
 import { MAGIC_CHARACTER_TYPE_TO_TEXT } from '../../../magic/magic.constant';
 import { MagicCharacterType } from '../../../magic/magic.type';
+import SimpleTranslateModalComponent from '../../../translate/simple-translate-modal.component';
 import { usePriority } from '../priority.hook';
 import { Priority } from '../priority.type';
 
@@ -30,7 +31,7 @@ const getMappedMagical = (priority: Priority) => {
 };
 
 const PriorityMagicalComponent = ({ priority }: Props) => {
-  const { getCardStatus, getSelectButton } = usePriority();
+  const { getCardStatus, getSelectButton } = usePriority('magical');
   const { t } = useTranslation();
   const [isGermeticOpened, setGermeticOpened] = useState<boolean>(false);
   const [isShamanOpened, setShamanOpened] = useState<boolean>(false);
@@ -51,7 +52,7 @@ const PriorityMagicalComponent = ({ priority }: Props) => {
       </Text>
       <div className="vertical-container">
         <Text size="s" className="white-space_pre-line">
-          {t('fullMagicalDescription')}
+          <SimpleTranslateModalComponent translateKey="fullMagicalDescription" />
         </Text>
         <Collapse
           label={t('fullMagicalGermetic')}

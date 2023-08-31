@@ -1,9 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { IconArrowLeft } from '@consta/icons/IconArrowLeft';
+import { Button } from '@consta/uikit/Button';
 import { block } from 'bem-cn';
-
-import UiButton from '../../ui/button/button.component';
 
 import { selectorFooter } from './footer.selector';
 
@@ -12,38 +11,38 @@ import './footer.scss';
 const cn = block('footer');
 
 const FooterComponent = () => {
-  const footer = useSelector(selectorFooter);
+  const { action, backAction, disabled, text } = useSelector(selectorFooter);
 
   function handleFooterClick(): void {
-    if (footer?.action) {
-      footer.action();
+    if (action) {
+      action();
     }
   }
 
   function handleBackClick(): void {
-    if (footer?.backAction) {
-      footer.backAction();
+    if (backAction) {
+      backAction();
     }
   }
 
-  if (footer.text === undefined) {
+  if (text === undefined) {
     return null;
   }
 
   return (
     <div className={cn()}>
       <div className={`${cn('container')} container`}>
-        {footer.backAction ? (
+        {backAction ? (
           <IconArrowLeft onClick={() => handleBackClick()} />
         ) : null}
-        <UiButton
-          wide
+        <Button
+          width="full"
           onClick={() => handleFooterClick()}
           size="s"
           view="primary"
-        >
-          {footer.text}
-        </UiButton>
+          disabled={disabled}
+          label={text}
+        />
       </div>
     </div>
   );

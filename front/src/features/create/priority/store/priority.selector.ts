@@ -10,7 +10,7 @@ export const selectorPriorityLevel = createSelector(
 );
 
 export const selectorCurrentPriority = createSelector(
-  (state: RootState) => state.priority.priorityLevel,
+  selectorPriorityLevel,
   (priorityLevel: PriorityLevel): Priority => {
     return (
       PRIORITY_TABLE.find(

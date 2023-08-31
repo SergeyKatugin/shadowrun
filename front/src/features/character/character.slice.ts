@@ -6,6 +6,8 @@ import {
   CharacterMageType,
   CharacterPriority,
   CharacterPriorityPayload,
+  CharacterRemovePriorityPayload,
+  CharacterSetAttributePayload,
 } from './character.type';
 
 const characterFromLocalStorage = localStorage.getItem('character');
@@ -18,10 +20,21 @@ let initialState: Character = {
   requiredErrors: [],
   mageType: null,
   priority: null,
+  attributes: {
+    body: 1,
+    charisma: 1,
+    dexterity: 1,
+    entity: 6,
+    intellect: 1,
+    magic: 6,
+    reaction: 1,
+    strength: 1,
+    willPower: 1,
+  },
 };
 
 if (characterFromLocalStorage) {
-  initialState = JSON.parse(characterFromLocalStorage);
+  initialState = { ...initialState, ...JSON.parse(characterFromLocalStorage) };
 }
 
 export const characterSlice = createSlice({
@@ -83,11 +96,32 @@ export const characterSlice = createSlice({
         } as CharacterPriority;
       } else {
         state.priority = {
+          ...state.priority,
           [level]: {
             [key]: priority,
           },
         } as CharacterPriority;
       }
+    },
+    removeCharacterPriority: (
+      state: Character,
+      action: PayloadAction<CharacterRemovePriorityPayload>,
+    ) => {
+      const { level, key } = action.payload;
+
+      if (!state.priority) {
+        return;
+      }
+
+      delete state.priority[level][key];
+    },
+    changeCharacterAttribute: (
+      state: Character,
+      action: PayloadAction<CharacterSetAttributePayload>,
+    ) => {
+      const { level, key } = action.payload;
+
+      state.attributes[key] = level;
     },
   },
 });
@@ -102,6 +136,8 @@ export const {
   resetCharacterError,
   setCharacterMageType,
   setCharacterPriority,
+  removeCharacterPriority,
+  changeCharacterAttribute,
 } = characterSlice.actions;
 
 export default characterSlice.reducer;

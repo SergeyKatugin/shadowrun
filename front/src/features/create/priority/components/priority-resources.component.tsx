@@ -11,7 +11,7 @@ type Props = {
 };
 
 const PriorityResourcesComponent = ({ priority }: Props) => {
-  const { getCardStatus, getSelectButton } = usePriority();
+  const { getCardStatus, getSelectButton } = usePriority('resources');
   const { t } = useTranslation();
 
   return (
@@ -24,7 +24,12 @@ const PriorityResourcesComponent = ({ priority }: Props) => {
       <Text size="xl" as="h1" className="vertical-container">
         {t('resourceCreateTitle')}
       </Text>
-      <div>{priority.resources}</div>
+      <Text size="s" as="div" className="vertical-container">
+        {t('resourcePriorityDescription')}
+      </Text>
+      <div className="vertical-container">
+        {t('resourceCount')}: <b>{priority.resources}</b>
+      </div>
 
       {getSelectButton('resources')}
     </Card>
