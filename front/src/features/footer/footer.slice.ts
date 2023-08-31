@@ -5,6 +5,7 @@ export type FooterState = {
   text?: string;
   action?: () => void;
   backAction?: () => void;
+  disabled?: boolean;
 };
 
 const initialState: FooterState = {};
@@ -14,7 +15,12 @@ export const footerSlice = createSlice({
   initialState,
   reducers: {
     setFooter: (state: FooterState, action: PayloadAction<FooterState>) => {
-      const { text, action: payloadAction, backAction } = action.payload;
+      const {
+        text,
+        action: payloadAction,
+        backAction,
+        disabled,
+      } = action.payload;
 
       if (text) {
         state.text = text;
@@ -28,7 +34,14 @@ export const footerSlice = createSlice({
         state.backAction = backAction;
       }
 
+      if (disabled) {
+        state.disabled = disabled;
+      }
+
       return state;
+    },
+    setFooterDisabled: (state: FooterState, action: PayloadAction<boolean>) => {
+      state.disabled = action.payload;
     },
     resetFooter: (state: FooterState) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -45,6 +58,7 @@ export const footerSlice = createSlice({
   },
 });
 
-export const { setFooter, resetFooter, updateFooterText } = footerSlice.actions;
+export const { setFooter, resetFooter, updateFooterText, setFooterDisabled } =
+  footerSlice.actions;
 
 export default footerSlice.reducer;

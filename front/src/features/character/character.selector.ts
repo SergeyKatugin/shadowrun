@@ -1,8 +1,13 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 import { RootState } from '../../store';
+import { PriorityLevel } from '../create/priority/priority.type';
 
-import { Character } from './character.type';
+import { Character, PriorityKey } from './character.type';
+import {
+  getCharacterPriorityAttributeValue,
+  getSumCharacterAttributes,
+} from './character.util';
 
 export const selectorCharacter = createSelector(
   (state: RootState) => state.character,
@@ -43,4 +48,51 @@ export const selectorCharacterIsNameErrorRequired = createSelector(
 export const selectorCharacterPriority = createSelector(
   (state: RootState) => state.character.priority,
   (priority: Character['priority']) => priority,
+);
+
+export const selectorCharacterAttributes = createSelector(
+  (state: RootState) => state.character.attributes,
+  (attributes: Character['attributes']) => attributes,
+);
+
+export const selectorIsSelectedPriority = createSelector(
+  [
+    (state: RootState) => state.character.priority,
+    (state: RootState) => state.priority.priorityLevel,
+    (state: RootState, priorityKey: PriorityKey) => priorityKey,
+  ],
+  (
+    priority: Character['priority'],
+    priorityLevel: PriorityLevel,
+    priorityKey: PriorityKey,
+  ) => {
+    let isHasInAnyLevel = false;
+
+    if (!priority) {
+      return isHasInAnyLevel;
+    }
+
+    Object.keys(priority).forEach((level) => {
+      const currentPriority = priority[level as PriorityLevel];
+
+      if (currentPriority[priorityKey]) {
+        isHasInAnyLevel = true;
+      }
+    });
+
+    return isHasInAnyLevel;
+  },
+);
+
+export const selectorLeftAttributes = createSelector(
+  [selectorCharacterAttributes, selectorCharacterPriority],
+  (
+    attributes: Character['attributes'],
+    characterPriority: Character['priority'],
+  ): number => {
+    const maxAttributes = getCharacterPriorityAttributeValue(characterPriority);
+    const sumCharacterAttributes = getSumCharacterAttributes(attributes);
+
+    return maxAttributes - sumCharacterAttributes;
+  },
 );

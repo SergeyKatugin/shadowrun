@@ -13,7 +13,7 @@ type Props = {
 };
 
 const PriorityAttributeComponent = ({ priority }: Props) => {
-  const { getCardStatus, getSelectButton } = usePriority();
+  const { getCardStatus, getSelectButton } = usePriority('attributes');
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
