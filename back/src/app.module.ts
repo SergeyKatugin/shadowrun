@@ -2,17 +2,22 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { AppController } from './app.controller';
+import { CharacterController } from './character.controller';
 import { LOGGER } from './constants';
-import { AppService, DummyLoggerService, LoggerService } from './services';
+import { AppService, CharacterService, DummyLoggerService, LoggerService } from './services';
 
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
   ],
-  controllers: [ AppController ],
+  controllers: [
+    AppController,
+    CharacterController,
+  ],
   providers: [
     AppService,
+    CharacterService,
     {
       provide: LOGGER,
       useFactory: (configService: ConfigService) => {
