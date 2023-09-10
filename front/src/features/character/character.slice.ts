@@ -1,6 +1,9 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
+import { randomizeRatings } from '../../utils/random.util';
+import { PriorityLevel } from '../create/priority/priority.type';
+
 import {
   Character,
   CharacterMageType,
@@ -12,7 +15,7 @@ import {
 
 const characterFromLocalStorage = localStorage.getItem('character');
 
-let initialState: Character = {
+const defaultState: Character = {
   name: '',
   description: '',
   gender: null,
@@ -31,7 +34,10 @@ let initialState: Character = {
     strength: 1,
     willPower: 1,
   },
+  selectedPriorities: [],
 };
+
+let initialState = { ...defaultState };
 
 if (characterFromLocalStorage) {
   initialState = { ...initialState, ...JSON.parse(characterFromLocalStorage) };
@@ -86,42 +92,62 @@ export const characterSlice = createSlice({
       state: Character,
       action: PayloadAction<CharacterPriorityPayload>,
     ) => {
-      const { level, key, priority } = action.payload;
+      const { key, priority } = action.payload;
 
-      if (!state.priority) {
-        state.priority = {
-          [level]: {
-            [key]: priority,
-          },
-        } as CharacterPriority;
-      } else {
-        state.priority = {
-          ...state.priority,
-          [level]: {
-            [key]: priority,
-          },
-        } as CharacterPriority;
-      }
+      state.priority = {
+        ...(state.priority || {}),
+        [key]: priority,
+      } as CharacterPriority;
     },
     removeCharacterPriority: (
       state: Character,
       action: PayloadAction<CharacterRemovePriorityPayload>,
     ) => {
-      const { level, key } = action.payload;
+      const { key } = action.payload;
 
       if (!state.priority) {
         return;
       }
 
-      delete state.priority[level][key];
+      delete state.priority[key];
     },
     changeCharacterAttribute: (
       state: Character,
       action: PayloadAction<CharacterSetAttributePayload>,
     ) => {
-      const { level, key } = action.payload;
+      const { key, rating } = action.payload;
 
-      state.attributes[key] = level;
+      state.attributes[key] = rating;
+    },
+    randomizeCharacterAttributes: (state: Character) => {
+      const priorityAttributes = state.priority?.attributes;
+
+      if (!priorityAttributes) {
+        return;
+      }
+
+      const randomizedAttributes = randomizeRatings(
+        {
+          body: defaultState.attributes.body,
+          charisma: defaultState.attributes.charisma,
+          dexterity: defaultState.attributes.dexterity,
+          intellect: defaultState.attributes.intellect,
+          strength: defaultState.attributes.strength,
+          willPower: defaultState.attributes.willPower,
+        },
+        priorityAttributes,
+      );
+
+      state.attributes = {
+        ...state.attributes,
+        ...randomizedAttributes,
+      };
+    },
+    setSelectedPriority: (
+      state: Character,
+      action: PayloadAction<PriorityLevel>,
+    ) => {
+      state.selectedPriorities.push(action.payload);
     },
   },
 });
@@ -138,6 +164,8 @@ export const {
   setCharacterPriority,
   removeCharacterPriority,
   changeCharacterAttribute,
+  randomizeCharacterAttributes,
+  setSelectedPriority,
 } = characterSlice.actions;
 
 export default characterSlice.reducer;

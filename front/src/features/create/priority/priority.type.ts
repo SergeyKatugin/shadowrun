@@ -3,8 +3,11 @@ import { RaceType } from '../../race/race.type';
 
 export type PriorityLevel = 'A' | 'B' | 'C' | 'D' | 'E';
 
-export type Priority = {
+export type PriorityWithLevel = {
   level: PriorityLevel;
+} & Priority;
+
+export type Priority = {
   race: RaceType[] | null;
   magical: MagicCharacterType[] | null;
   attributes: 30 | 27 | 24 | 21 | 18;

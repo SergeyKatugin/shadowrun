@@ -11,8 +11,12 @@ type Props = {
 };
 
 const PriorityResourcesComponent = ({ priority }: Props) => {
-  const { getCardStatus, getSelectButton } = usePriority('resources');
+  const { getCardStatus, getSelectButton, isHide } = usePriority('resources');
   const { t } = useTranslation();
+
+  if (isHide()) {
+    return null;
+  }
 
   return (
     <Card

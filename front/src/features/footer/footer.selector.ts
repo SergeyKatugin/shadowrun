@@ -8,3 +8,8 @@ export const selectorFooter = createSelector(
   (state: RootState) => state.footer,
   (footer: FooterState) => footer,
 );
+
+export const selectorIsFooterDisabled = createSelector(
+  selectorFooter,
+  (footer: FooterState) => footer.disabled,
+);

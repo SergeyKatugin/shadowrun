@@ -9,9 +9,11 @@ const CreateComponent = () => {
 
   /** Looks like not so optimize, but okay for now */
   useEffect(() => {
-    const stringifiedCharacter = JSON.stringify(character);
+    requestAnimationFrame(() => {
+      const stringifiedCharacter = JSON.stringify(character);
 
-    localStorage.setItem('character', stringifiedCharacter);
+      localStorage.setItem('character', stringifiedCharacter);
+    });
   }, [character]);
 
   return <Outlet />;

@@ -18,9 +18,12 @@ const getMappedMagical = (priority: Priority) => {
   if (priority.magical && priority.magical.length > 0) {
     return (
       <div>
-        {priority.magical.map((magical: MagicCharacterType) => {
+        {priority.magical.map((magical: MagicCharacterType, index: number) => {
           return (
-            <span key={magical}>{MAGIC_CHARACTER_TYPE_TO_TEXT[magical]}</span>
+            <React.Fragment key={magical}>
+              <span>{MAGIC_CHARACTER_TYPE_TO_TEXT[magical]}</span>
+              {index !== (priority.magical?.length || 0) - 1 ? ' / ' : ''}
+            </React.Fragment>
           );
         })}
       </div>
@@ -31,12 +34,12 @@ const getMappedMagical = (priority: Priority) => {
 };
 
 const PriorityMagicalComponent = ({ priority }: Props) => {
-  const { getCardStatus, getSelectButton } = usePriority('magical');
+  const { getCardStatus, getSelectButton, isHide } = usePriority('magical');
   const { t } = useTranslation();
   const [isGermeticOpened, setGermeticOpened] = useState<boolean>(false);
   const [isShamanOpened, setShamanOpened] = useState<boolean>(false);
 
-  if (!priority.magical) {
+  if (!priority.magical || isHide()) {
     return null;
   }
 

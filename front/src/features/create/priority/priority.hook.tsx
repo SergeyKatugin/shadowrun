@@ -3,16 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@consta/uikit/Button';
 import { CardPropStatus } from '@consta/uikit/Card';
-import { Text } from '@consta/uikit/Text';
 
-import { RootState } from '../../../store';
 import {
   selectorCharacterPriority,
-  selectorIsSelectedPriority,
+  selectorCharacterSelectedPriorities,
 } from '../../character/character.selector';
 import {
   removeCharacterPriority,
   setCharacterPriority,
+  setSelectedPriority,
 } from '../../character/character.slice';
 import { PriorityKey } from '../../character/character.type';
 
@@ -23,49 +22,58 @@ export const usePriority = (priorityKey: PriorityKey) => {
   const dispatch = useDispatch();
   const priority = useSelector(selectorCurrentPriority);
   const characterPriority = useSelector(selectorCharacterPriority);
-  const isSelectedPriority = useSelector((state: RootState) =>
-    selectorIsSelectedPriority(state, priorityKey),
-  );
+  const selectedPriorities = useSelector(selectorCharacterSelectedPriorities);
 
   function getCardStatus(key: PriorityKey): CardPropStatus | undefined {
-    return characterPriority?.[priority.level]?.[key] ? 'success' : undefined;
+    return characterPriority?.[key] ? 'success' : undefined;
   }
 
   function setActiveCharacterPriority(key: PriorityKey): void {
     dispatch(
       setCharacterPriority({
-        level: priority.level,
         key,
         priority: priority[key],
       }),
     );
+
+    dispatch(setSelectedPriority(priority.level));
   }
 
   function removeActiveCharacterPriority(key: PriorityKey): void {
     dispatch(
       removeCharacterPriority({
-        level: priority.level,
         key,
       }),
     );
   }
 
+  function isHide(): boolean {
+    if (
+      selectedPriorities.length > 0 &&
+      selectedPriorities.includes(priority.level)
+    ) {
+      if (!characterPriority || !characterPriority[priorityKey]) {
+        return true;
+      }
+
+      return characterPriority[priorityKey] === undefined;
+    }
+
+    if (characterPriority?.[priorityKey]) {
+      return true;
+    }
+
+    return false;
+  }
+
   function getSelectButton(key: PriorityKey): React.ReactNode {
-    if (characterPriority?.[priority.level]?.[key]) {
+    if (characterPriority?.[key]) {
       return (
         <Button
           size="s"
           label={t('deselect')}
           onClick={() => removeActiveCharacterPriority(key)}
         />
-      );
-    }
-
-    if (isSelectedPriority) {
-      return (
-        <Text size="s" weight="bold">
-          {t('selectedInAnother')}
-        </Text>
       );
     }
 
@@ -81,6 +89,6 @@ export const usePriority = (priorityKey: PriorityKey) => {
   return {
     getCardStatus,
     getSelectButton,
-    isSelectedPriority,
+    isHide,
   };
 };

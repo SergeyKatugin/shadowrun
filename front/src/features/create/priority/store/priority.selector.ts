@@ -2,19 +2,26 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import { RootState } from '../../../../store';
 import { PRIORITY_TABLE } from '../priority.constant';
-import { Priority, PriorityLevel } from '../priority.type';
+import { PriorityLevel, PriorityWithLevel } from '../priority.type';
+
+import { PriorityState } from './priority.slice';
+
+export const selectorPriority = createSelector(
+  (state: RootState) => state.priority,
+  (priority: PriorityState) => priority,
+);
 
 export const selectorPriorityLevel = createSelector(
-  (state: RootState) => state.priority.priorityLevel,
-  (priorityLevel: PriorityLevel) => priorityLevel,
+  selectorPriority,
+  ({ priorityLevel }: PriorityState) => priorityLevel,
 );
 
 export const selectorCurrentPriority = createSelector(
   selectorPriorityLevel,
-  (priorityLevel: PriorityLevel): Priority => {
+  (priorityLevel: PriorityLevel): PriorityWithLevel => {
     return (
       PRIORITY_TABLE.find(
-        (priority: Priority) => priority.level === priorityLevel,
+        (priority: PriorityWithLevel) => priority.level === priorityLevel,
       ) || PRIORITY_TABLE[0]
     );
   },
