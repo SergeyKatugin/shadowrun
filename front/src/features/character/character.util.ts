@@ -1,6 +1,6 @@
-import { SETTABLE_ATTRIBUTES } from '../attribute/attribute.constant';
+import { CHANGABLE_ATTRIBUTES } from '../attribute/attribute.constant';
 import { ChangeableAttribute } from '../attribute/attribute.type';
-import { Priority, PriorityLevel } from '../create/priority/priority.type';
+import { Priority } from '../create/priority/priority.type';
 
 import { Character } from './character.type';
 
@@ -11,27 +11,21 @@ export function getCharacterPriorityAttributeValue(
     return 30;
   }
 
-  let foundValue: Priority['attributes'] = 30;
+  const defaultValue: Priority['attributes'] = 18;
 
-  Object.keys(characterPriority).forEach((level) => {
-    if (characterPriority[level as PriorityLevel].attributes) {
-      foundValue = characterPriority[level as PriorityLevel]
-        .attributes as Priority['attributes'];
-    }
-  });
+  if (characterPriority.attributes) {
+    return characterPriority.attributes;
+  }
 
-  return foundValue;
+  return defaultValue;
 }
 
 export function getSumCharacterAttributes(
   characterAttributes: Character['attributes'],
 ): number {
-  return SETTABLE_ATTRIBUTES.reduce(
-    (acc: number, attribute: ChangeableAttribute) => {
-      acc += characterAttributes[attribute];
+  return Object.keys(CHANGABLE_ATTRIBUTES).reduce((acc: number, attribute) => {
+    acc += characterAttributes[attribute as ChangeableAttribute];
 
-      return acc;
-    },
-    0,
-  );
+    return acc;
+  }, 0);
 }

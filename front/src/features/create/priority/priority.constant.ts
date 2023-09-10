@@ -1,6 +1,6 @@
-import { Priority } from './priority.type';
+import { PriorityWithLevel } from './priority.type';
 
-export const PRIORITY_TABLE: Priority[] = [
+export const PRIORITY_TABLE: PriorityWithLevel[] = [
   {
     level: 'A',
     race: null,

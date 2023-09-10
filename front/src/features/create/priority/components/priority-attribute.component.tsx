@@ -13,13 +13,17 @@ type Props = {
 };
 
 const PriorityAttributeComponent = ({ priority }: Props) => {
-  const { getCardStatus, getSelectButton } = usePriority('attributes');
+  const { getCardStatus, getSelectButton, isHide } = usePriority('attributes');
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const openAttributeDetails = () => {
     dispatch(toggleModal('attribute'));
   };
+
+  if (isHide()) {
+    return null;
+  }
 
   return (
     <Card

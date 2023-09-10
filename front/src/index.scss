@@ -126,6 +126,12 @@ button {
   }
 }
 
+.align {
+  &-center {
+    align-items: center;
+  }
+}
+
 .white-space {
   &_pre-line {
     white-space: pre-line;

@@ -1,11 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { Card } from '@consta/uikit/Card';
 import { Text } from '@consta/uikit/Text';
 
 import i18n from '../../../../i18n';
-import { selectorIsHasSelectedPriority } from '../../../character/character.selector';
 import { RACE_TYPE_TO_TEXT } from '../../../race/race.constant';
 import { RaceType } from '../../../race/race.type';
 import { usePriority } from '../priority.hook';
@@ -40,10 +38,10 @@ const getMappedRaces = (priority: Priority) => {
 };
 
 const PriorityRaceComponent = ({ priority }: Props) => {
-  const { getCardStatus, getSelectButton } = usePriority('race');
+  const { getCardStatus, getSelectButton, isHide } = usePriority('race');
   const { t } = useTranslation();
 
-  if (!priority.race) {
+  if (!priority.race || isHide()) {
     return null;
   }
 

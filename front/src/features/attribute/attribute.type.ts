@@ -6,6 +6,6 @@ export type ChangeableAttribute =
   | 'intellect'
   | 'willPower';
 
-export type Attribute = ChangeableAttribute | 'entity' | 'magic' | 'reaction';
+export type AttributeInfo = Record<ChangeableAttribute, string[]>;
 
-export type AttributeLevel = 1 | 2 | 3 | 4 | 5 | 6;
+export type Attribute = ChangeableAttribute | 'entity' | 'magic' | 'reaction';
