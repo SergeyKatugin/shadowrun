@@ -16,7 +16,7 @@ const KnowledgeCreateComponent = () => {
   useMount(() => {
     dispatch(
       setFooter({
-        text: t('knowledgeNext'),
+        text: t('menu.knowledgeNext'),
         action: () => {
           navigate(RouteName.ResourceCreate);
         },
@@ -30,10 +30,10 @@ const KnowledgeCreateComponent = () => {
   return (
     <>
       <Text size="xl" as="h1" className="mb-s">
-        {t('knowledgeTitle')}
+        {t('knowledge.title')}
       </Text>
       <Text size="s" as="span" className="mb-s">
-        {t('knowledgeDescription')}
+        {t('knowledge.description')}
       </Text>
     </>
   );

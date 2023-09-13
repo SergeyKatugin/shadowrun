@@ -22,10 +22,11 @@ const CommonCreateAppearanceComponent = () => {
       size="s"
       value={appearance}
       onChange={handleChangeAppearance}
-      placeholder={t('appearancePlaceholder')}
-      label={t('appearanceLabel')}
+      placeholder={t('create.common.appearancePlaceholder')}
+      label={t('create.common.appearanceLabel')}
       type="textarea"
       width="full"
+      rows={5}
     />
   );
 };

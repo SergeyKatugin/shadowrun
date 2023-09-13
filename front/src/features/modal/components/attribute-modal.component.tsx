@@ -31,117 +31,117 @@ const ModalAttributeComponent = () => {
   return (
     <BaseModalComponent
       isOpened={isOpened}
-      title={t('attributeDetailTitle')}
+      title={t('attribute.detailTitle')}
       handleClose={handleClose}
     >
       {/* Physical */}
       <Text size="l" className="vertical-container">
-        {t('attributePhysical')}
+        {t('attribute.physical')}
       </Text>
 
       <div className="vertical-container">
         {/* Body */}
         <Collapse
-          label={t('attributeBody')}
+          label={t('attribute.body')}
           size="s"
           isOpen={isBodyOpen}
           onClick={() => setIsBodyOpen(!isBodyOpen)}
         >
-          <Text size="s">{t('attributeBodyDescription')}</Text>
+          <Text size="s">{t('attribute.bodyDescription')}</Text>
         </Collapse>
 
         {/* Dexterity */}
         <Collapse
-          label={t('attributeDexterity')}
+          label={t('attribute.dexterity')}
           size="s"
           isOpen={isDexterityOpen}
           onClick={() => setIsDexterityOpen(!isDexterityOpen)}
         >
-          <Text size="s">{t('attributeDexterityDescription')}</Text>
+          <Text size="s">{t('attribute.dexterityDescription')}</Text>
         </Collapse>
 
         {/* Strength */}
         <Collapse
-          label={t('attributeStrength')}
+          label={t('attribute.strength')}
           size="s"
           isOpen={isStrengthOpen}
           onClick={() => setIsStrengthOpen(!isStrengthOpen)}
         >
-          <Text size="s">{t('attributeStrengthDescription')}</Text>
+          <Text size="s">{t('attribute.strengthDescription')}</Text>
         </Collapse>
       </div>
 
       {/* Mental */}
       <Text size="l" className="vertical-container">
-        {t('attributeMental')}
+        {t('attribute.mental')}
       </Text>
 
       <div className="vertical-container">
         {/* Charisma */}
         <Collapse
-          label={t('attributeCharisma')}
+          label={t('attribute.charisma')}
           size="s"
           isOpen={isCharismaOpen}
           onClick={() => setIsCharismaOpen(!isCharismaOpen)}
         >
-          <Text size="s">{t('attributeCharismaDescription')}</Text>
+          <Text size="s">{t('attribute.charismaDescription')}</Text>
         </Collapse>
 
         {/* Intellect */}
         <Collapse
-          label={t('attributeIntellect')}
+          label={t('attribute.intellect')}
           size="s"
           isOpen={isIntellectOpen}
           onClick={() => setIsIntellectOpen(!isIntellectOpen)}
         >
-          <Text size="s">{t('attributeIntellectDescription')}</Text>
+          <Text size="s">{t('attribute.intellectDescription')}</Text>
         </Collapse>
 
         {/* Will power */}
         <Collapse
-          label={t('attributeWillPower')}
+          label={t('attribute.willPower')}
           size="s"
           isOpen={isWillPowerOpen}
           onClick={() => setIsWillPowerOpen(!isWillPowerOpen)}
         >
-          <Text size="s">{t('attributeWillPowerDescription')}</Text>
+          <Text size="s">{t('attribute.willPowerDescription')}</Text>
         </Collapse>
       </div>
 
       {/* Special */}
       <Text size="l" className="vertical-container">
-        {t('attributeSpecial')}
+        {t('attribute.special')}
       </Text>
 
       <div className="vertical-container">
         {/* Entity */}
         <Collapse
-          label={t('attributeEntity')}
+          label={t('attribute.entity')}
           size="s"
           isOpen={isEntityOpen}
           onClick={() => setIsEntityOpen(!isEntityOpen)}
         >
-          <Text size="s">{t('attributeEntityDescription')}</Text>
+          <Text size="s">{t('attribute.entityDescription')}</Text>
         </Collapse>
 
         {/* Magic */}
         <Collapse
-          label={t('attributeMagic')}
+          label={t('attribute.magic')}
           size="s"
           isOpen={isMagicOpen}
           onClick={() => setIsMagicOpen(!isMagicOpen)}
         >
-          <Text size="s">{t('attributeMagicDescription')}</Text>
+          <Text size="s">{t('attribute.magicDescription')}</Text>
         </Collapse>
 
         {/* Reaction */}
         <Collapse
-          label={t('attributeReaction')}
+          label={t('attribute.reaction')}
           size="s"
           isOpen={isReactionOpen}
           onClick={() => setIsReactionOpen(!isReactionOpen)}
         >
-          <Text size="s">{t('attributeMagicDescription')}</Text>
+          <Text size="s">{t('attribute.reactionDescription')}</Text>
         </Collapse>
       </div>
     </BaseModalComponent>

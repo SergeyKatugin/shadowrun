@@ -10,15 +10,15 @@ import { CharacterGender } from '../../../character/character.type';
 
 const ITEMS: { id: CharacterGender; label: string }[] = [
   {
-    label: i18n.t('male'),
+    label: i18n.t('create.common.male'),
     id: 'male',
   },
   {
-    label: i18n.t('female'),
+    label: i18n.t('create.common.female'),
     id: 'female',
   },
   {
-    label: i18n.t('other'),
+    label: i18n.t('create.common.other'),
     id: 'other',
   },
 ];
@@ -40,8 +40,8 @@ const CommonCreateGenderComponent = () => {
       }}
       items={ITEMS}
       getItemKey={({ id }) => id || ''}
-      placeholder={t('genderPlaceholder')}
-      label={t('genderLabel')}
+      placeholder={t('create.common.genderPlaceholder')}
+      label={t('create.common.genderLabel')}
       size="s"
       onChange={(item) => handleChangeGender(item.value?.id || null)}
     />

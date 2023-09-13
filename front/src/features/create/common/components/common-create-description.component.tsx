@@ -22,10 +22,11 @@ const CommonCreateDescriptionComponent = () => {
       size="s"
       value={description}
       onChange={handleChangeDescription}
-      placeholder={t('descriptionPlaceholder')}
-      label={t('fillDescription')}
+      placeholder={t('create.common.descriptionPlaceholder')}
+      label={t('create.common.fillDescription')}
       type="textarea"
       width="full"
+      rows={5}
     />
   );
 };

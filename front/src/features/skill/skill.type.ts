@@ -2,7 +2,13 @@ import { DefaultItem } from '@consta/uikit/Combobox';
 
 import { Attribute } from '../attribute/attribute.type';
 
-export type SkillCategory = 'fight' | 'magical' | 'special';
+export type SkillCategory =
+  | 'fight'
+  | 'magical'
+  | 'technical'
+  | 'physical'
+  | 'social'
+  | 'transport';
 
 export type Skill = {
   id: string;

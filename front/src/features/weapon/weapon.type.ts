@@ -1,16 +1,6 @@
 import { Availability, Damage } from '../../types/base.type';
 
-export type WeaponType =
-  // Штурмовая винтонка
-  | 'rifle'
-  // Дробовики
-  | 'shotgun'
-  // Пистолеты
-  | 'pistol'
-  // Пистолет-пулемет
-  | 'automatic-pistol'
-  // Дубинка
-  | 'baton';
+export type WeaponType = 'fire-arms' | 'personal';
 
 export type WeaponMode =
   // одиночный выстрел (ОВ)
@@ -28,9 +18,9 @@ export type Weapon = {
   type: WeaponType;
   hiding: number;
   damage: Damage;
-  availability: Availability;
-  price: number;
-  streetCoefficient: number;
+  availability: Availability | null;
+  price: number | null;
+  streetCoefficient: number | null;
   mode?: WeaponMode[];
   ammo?: number;
   reachLevel?: number | null;

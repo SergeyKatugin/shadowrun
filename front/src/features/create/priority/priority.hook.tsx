@@ -71,7 +71,7 @@ export const usePriority = (priorityKey: PriorityKey) => {
       return (
         <Button
           size="s"
-          label={t('deselect')}
+          label={t('create.priority.deselect')}
           onClick={() => removeActiveCharacterPriority(key)}
         />
       );
@@ -80,7 +80,7 @@ export const usePriority = (priorityKey: PriorityKey) => {
     return (
       <Button
         size="s"
-        label={t('select')}
+        label={t('create.priority.select')}
         onClick={() => setActiveCharacterPriority(key)}
       />
     );

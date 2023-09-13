@@ -26,13 +26,13 @@ const PriorityResourcesComponent = ({ priority }: Props) => {
       status={getCardStatus('resources')}
     >
       <Text size="xl" as="h1" className="vertical-container">
-        {t('resourceCreateTitle')}
+        {t('create.priority.resourceTitle')}
       </Text>
       <Text size="s" as="div" className="vertical-container">
-        {t('resourcePriorityDescription')}
+        {t('create.priority.resourceDescription')}
       </Text>
       <div className="vertical-container">
-        {t('resourceCount')}: <b>{priority.resources}</b>
+        {t('create.priority.resourceCount')}: <b>{priority.resources}</b>
       </div>
 
       {getSelectButton('resources')}

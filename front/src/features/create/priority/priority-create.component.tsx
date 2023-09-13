@@ -30,27 +30,27 @@ type Map = {
 
 const MAP_PRIORITY: Record<PriorityLevel, Map> = {
   A: {
-    nextText: i18n.t('toBPriority'),
+    nextText: i18n.t('menu.toBPriority'),
     nextPriority: 'B',
     prevPriority: null,
   },
   B: {
-    nextText: i18n.t('toCPriority'),
+    nextText: i18n.t('menu.toCPriority'),
     nextPriority: 'C',
     prevPriority: 'A',
   },
   C: {
-    nextText: i18n.t('toDPriority'),
+    nextText: i18n.t('menu.toDPriority'),
     nextPriority: 'D',
     prevPriority: 'B',
   },
   D: {
-    nextText: i18n.t('toEPriority'),
+    nextText: i18n.t('menu.toEPriority'),
     nextPriority: 'E',
     prevPriority: 'C',
   },
   E: {
-    nextText: i18n.t('attributeNext'),
+    nextText: i18n.t('menu.priorityNext'),
     nextPriority: null,
     prevPriority: 'D',
   },
@@ -93,15 +93,15 @@ const PriorityCreateComponent = () => {
   return (
     <>
       <Text size="xl" as="h1" className="vertical-container">
-        {t('createPriority')}
+        {t('create.priority.createPriority')}
       </Text>
 
       <Text size="s" className="vertical-container">
-        {t('descriptionPriority')}
+        {t('create.priority.descriptionPriority')}
       </Text>
 
       <Text size="s" className="vertical-container">
-        {t('detailPriority')}
+        {t('create.priority.detailPriority')}
       </Text>
 
       <PriorityRaceComponent priority={priority} />

@@ -35,15 +35,6 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
       },
-      // parserOptions: {
-      //   createDefaultProgram: true,
-      //   ecmaFeatures: {
-      //     jsx: true,
-      //   },
-      //   ecmaVersion: 2019,
-      //   sourceType: 'module',
-      //   // project: ['./tsconfig.json'],
-      // },
       parserOptions: {
         parser: '@typescript-eslint/parser',
         project: 'tsconfig.json',

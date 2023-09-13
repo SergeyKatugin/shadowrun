@@ -26,13 +26,13 @@ const PrioritySkillsComponent = ({ priority }: Props) => {
       status={getCardStatus('skills')}
     >
       <Text size="xl" as="h1" className="vertical-container">
-        {t('skillCreateTitle')}
+        {t('create.priority.skillCreateTitle')}
       </Text>
       <Text size="s" as="div" className="vertical-container">
-        {t('skillDetailDescription')}
+        {t('create.priority.skillDetailDescription')}
       </Text>
       <div className="vertical-container">
-        {t('skillsCount')}: <b>{priority.skills}</b>
+        {t('create.priority.skillsCount')}: <b>{priority.skills}</b>
       </div>
 
       {getSelectButton('skills')}

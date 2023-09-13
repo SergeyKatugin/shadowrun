@@ -10,12 +10,12 @@ import { setSimplyView } from '../modal/store/simply-modal.slice';
 
 const TAG_TO_TRANSLATES: Record<string, SimpleViewModal> = {
   warlock: {
-    title: i18n.t('warlockTitle'),
-    description: i18n.t('warlockDescription'),
+    title: i18n.t('magic.warlockTitle'),
+    description: i18n.t('magic.warlockDescription'),
   },
   summon: {
-    title: i18n.t('summonTitle'),
-    description: i18n.t('summonDescription'),
+    title: i18n.t('magic.summonTitle'),
+    description: i18n.t('magic.summonDescription'),
   },
 };
 

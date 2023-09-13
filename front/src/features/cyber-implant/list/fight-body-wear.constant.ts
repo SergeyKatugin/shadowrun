@@ -4,8 +4,8 @@ import { CyberImplant } from '../cyber-implant.type';
 export const FIGHT_BODY_WEAR: CyberImplant[] = [
   {
     id: '81340b36-d2ba-4bc5-a8c7-321d6fca17a7',
-    name: i18n.t('cyberImplantHandBlade'),
-    description: i18n.t('cyberImplantHandBladeDescription'),
+    name: i18n.t('cyberImplant.bodyWear.handBlade'),
+    description: i18n.t('cyberImplant.bodyWear.handBladeDescription'),
     entity: -0.1,
     price: 7500,
     availability: [6, { value: 5, dateType: 'day' }],
@@ -18,8 +18,10 @@ export const FIGHT_BODY_WEAR: CyberImplant[] = [
     children: [
       {
         id: 'f9ff77bd-cd35-4b37-8d6c-76012dbb6aa5',
-        name: i18n.t('cyberImplantExtendableHandBlade'),
-        description: i18n.t('cyberImplantExtendableHandBladeDescription'),
+        name: i18n.t('cyberImplant.bodyWear.extendableHandBlade'),
+        description: i18n.t(
+          'cyberImplant.bodyWear.extendableHandBladeDescription',
+        ),
         entity: -0.25,
         price: 2500,
         isAddPrice: true,
@@ -35,8 +37,8 @@ export const FIGHT_BODY_WEAR: CyberImplant[] = [
   },
   {
     id: 'c3ce79ef-f538-4f01-a8c9-26e290f0fec6',
-    name: i18n.t('cyberImplantManualRazors'),
-    description: i18n.t('cyberImplantManualRazorsDescription'),
+    name: i18n.t('cyberImplant.bodyWear.manualRazors'),
+    description: i18n.t('cyberImplant.bodyWear.manualRazorsDescription'),
     entity: -0.1,
     price: 4500,
     availability: [3, { value: 72, dateType: 'hours' }],
@@ -49,7 +51,7 @@ export const FIGHT_BODY_WEAR: CyberImplant[] = [
     children: [
       {
         id: '23ab0926-d7d7-4741-a4c9-c453982db929',
-        name: i18n.t('cyberImplantEnhancedManualRazors'),
+        name: i18n.t('cyberImplant.bodyWear.enhancedManualRazors'),
         entity: -0.1,
         price: 8500,
         isAddPrice: true,
@@ -63,7 +65,7 @@ export const FIGHT_BODY_WEAR: CyberImplant[] = [
       },
       {
         id: '395d48c6-67ce-48fa-928f-4ac032855143',
-        name: i18n.t('cyberImplantExpandableManualRazors'),
+        name: i18n.t('cyberImplant.bodyWear.expandableManualRazors'),
         entity: -0.1,
         price: 4500,
         isAddPrice: true,
@@ -79,8 +81,8 @@ export const FIGHT_BODY_WEAR: CyberImplant[] = [
   },
   {
     id: '454f8066-d5a0-48ab-a2dd-d0d47ac7cf87',
-    name: i18n.t('cyberImplantSpur'),
-    description: i18n.t('cyberImplantSpurDescription'),
+    name: i18n.t('cyberImplant.bodyWear.spur'),
+    description: i18n.t('cyberImplant.bodyWear.spurDescription'),
     entity: -0.1,
     price: 7000,
     availability: [3, { value: 72, dateType: 'hours' }],
@@ -92,7 +94,7 @@ export const FIGHT_BODY_WEAR: CyberImplant[] = [
     children: [
       {
         id: '6bddf1f9-9934-46b3-a8b4-d4b49134774c',
-        name: i18n.t('cyberImplantExpandableSpur'),
+        name: i18n.t('cyberImplant.bodyWear.expandableSpur'),
         entity: -0.3,
         price: 4500,
         isAddPrice: true,

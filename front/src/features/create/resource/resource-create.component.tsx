@@ -15,9 +15,9 @@ import {
 } from '../../footer/footer.slice';
 
 const NEXT_STEP: Record<string, string> = {
-  full: i18n.t('createFullMage'),
-  aspect: i18n.t('createAspectMage'),
-  adept: i18n.t('createAdeptMage'),
+  full: i18n.t('menu.createFullMage'),
+  aspect: i18n.t('menu.createAspectMage'),
+  adept: i18n.t('menu.createAdeptMage'),
 };
 
 const ResourceCreateComponent = () => {
@@ -27,13 +27,15 @@ const ResourceCreateComponent = () => {
   const mageType = useSelector(selectorCharacterMageType);
 
   useEffect(() => {
-    updateFooterText(mageType === null ? t('finish') : NEXT_STEP[mageType]);
+    updateFooterText(
+      mageType === null ? t('menu.finish') : NEXT_STEP[mageType],
+    );
   }, [mageType, t]);
 
   useMount(() => {
     dispatch(
       setFooter({
-        text: t('finish'),
+        text: t('menu.finish'),
         action: () => {
           if (mageType !== null) {
             navigate(RouteName.MageCreate);
@@ -52,10 +54,10 @@ const ResourceCreateComponent = () => {
   return (
     <>
       <Text size="xl" as="h1" className="mb-s">
-        {t('resourceTitle')}
+        {t('create.resource.title')}
       </Text>
       <Text size="s" as="span" className="mb-s">
-        {t('resourceDescription')}
+        {t('create.resource.description')}
       </Text>
     </>
   );
