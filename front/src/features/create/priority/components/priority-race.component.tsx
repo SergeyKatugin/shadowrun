@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card } from '@consta/uikit/Card';
+import { cnMixSpace } from '@consta/uikit/MixSpace';
 import { Text } from '@consta/uikit/Text';
 
-import i18n from '../../../../i18n';
 import { RACE_TYPE_TO_TEXT } from '../../../race/race.constant';
 import { RaceType } from '../../../race/race.type';
 import { usePriority } from '../priority.hook';
@@ -16,14 +16,11 @@ type Props = {
 const getMappedRaces = (priority: Priority) => {
   if (priority.race && priority.race.length > 0) {
     return (
-      <div>
-        <Text size="l" as="span">
-          {i18n.t('raceCreateTitle')}:
-        </Text>
+      <div className={cnMixSpace({ mB: 's' })}>
         {priority.race.map((race: RaceType, index: number) => {
           return (
             <React.Fragment key={race}>
-              <Text as="span" size="s">
+              <Text as="span" size="m">
                 {RACE_TYPE_TO_TEXT[race]}
               </Text>
               {index !== priority.race!.length - 1 && <span>/</span>}
@@ -53,7 +50,7 @@ const PriorityRaceComponent = ({ priority }: Props) => {
       status={getCardStatus('race')}
     >
       <Text size="xl" as="h1" className="vertical-container">
-        {t('raceCreateTitle')}
+        {t('create.priority.raceCreateTitle')}
       </Text>
       <div>{getMappedRaces(priority)}</div>
 

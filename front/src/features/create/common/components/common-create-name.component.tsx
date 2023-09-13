@@ -43,10 +43,10 @@ const CommonCreateNameComponent = () => {
         size="s"
         value={name}
         onChange={handleChangeName}
-        placeholder={t('namePlaceholder')}
-        label={t('fillName')}
+        placeholder={t('create.common.namePlaceholder')}
+        label={t('create.common.fillName')}
         state={requiredError ? 'alert' : undefined}
-        caption={requiredError ? t('requiredError') : undefined}
+        caption={requiredError ? t('base.requiredError') : undefined}
         width="full"
         onClick={randomizeName}
         rightSide={IconDice}

@@ -40,11 +40,11 @@ const CommonCreateComponent = () => {
   useEffect(() => {
     dispatch(
       setFooter({
-        text: t('selectPriority'),
+        text: t('menu.selectPriority'),
         action: () => validateAndNext(),
         backAction: () => {
           dispatch(resetFooter());
-          navigate(RouteName.Home);
+          navigate(RouteName.Welcome);
         },
       }),
     );
@@ -54,10 +54,10 @@ const CommonCreateComponent = () => {
     <>
       <div className={`vertical-container ${cn()}`}>
         <Text size="xl" as="h1" className="mb-s">
-          {t('create')}
+          {t('create.title')}
         </Text>
         <Text size="s" as="span" className="mb-s">
-          {t('createDescription')}
+          {t('create.description')}
         </Text>
       </div>
 

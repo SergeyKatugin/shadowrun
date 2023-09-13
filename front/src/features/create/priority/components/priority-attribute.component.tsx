@@ -33,10 +33,10 @@ const PriorityAttributeComponent = ({ priority }: Props) => {
       status={getCardStatus('attributes')}
     >
       <Text size="xl" as="h1" className="vertical-container">
-        {t('attributeCreateTitle')}
+        {t('create.priority.attributeCreateTitle')}
       </Text>
       <Text size="s" as="div" className="vertical-container">
-        {t('attributeDetailDescription')}
+        {t('create.priority.attributeDetailDescription')}
       </Text>
       <Text
         size="s"
@@ -44,11 +44,11 @@ const PriorityAttributeComponent = ({ priority }: Props) => {
         onClick={openAttributeDetails}
         decoration="underline"
       >
-        {t('moreAboutAttribute')}
+        {t('create.priority.moreAboutAttribute')}
       </Text>
 
       <div className="vertical-container">
-        {t('attributeCount')}: <b>{priority.attributes}</b>
+        {t('create.priority.attributeCount')}: <b>{priority.attributes}</b>
       </div>
 
       {getSelectButton('attributes')}

@@ -55,23 +55,27 @@ const PriorityMagicalComponent = ({ priority }: Props) => {
       </Text>
       <div className="vertical-container">
         <Text size="s" className="white-space_pre-line">
-          <SimpleTranslateModalComponent translateKey="fullMagicalDescription" />
+          <SimpleTranslateModalComponent translateKey="create.priority.fullMagicalDescription" />
         </Text>
         <Collapse
-          label={t('fullMagicalGermetic')}
+          label={t('create.priority.fullMagicalGermetic')}
           size="s"
           isOpen={isGermeticOpened}
           onClick={() => setGermeticOpened(!isGermeticOpened)}
         >
-          <Text size="s">{t('fullMagicalGermeticDescription')}</Text>
+          <Text size="s">
+            {t('create.priority.fullMagicalGermeticDescription')}
+          </Text>
         </Collapse>
         <Collapse
-          label={t('fullMagicalShaman')}
+          label={t('create.priority.fullMagicalShaman')}
           size="s"
           isOpen={isShamanOpened}
           onClick={() => setShamanOpened(!isShamanOpened)}
         >
-          <Text size="s">{t('fullMagicalShamanDescription')}</Text>
+          <Text size="s">
+            {t('create.priority.fullMagicalShamanDescription')}
+          </Text>
         </Collapse>
       </div>
 

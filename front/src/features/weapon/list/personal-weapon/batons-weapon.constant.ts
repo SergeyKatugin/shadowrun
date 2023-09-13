@@ -1,11 +1,11 @@
-import i18n from '../../../i18n';
-import { Weapon } from '../weapon.type';
+import i18n from '../../../../i18n';
+import { Weapon } from '../../weapon.type';
 
 export const BATON_WEAPONS: Weapon[] = [
   {
     id: 'd6b36361-86fe-47ff-9026-9e1a6a89fc87',
-    type: 'baton',
-    name: i18n.t('batonName'),
+    type: 'personal',
+    name: i18n.t('weapon.personal.batonName'),
     hiding: 5,
     reachLevel: 5,
     damage: {
@@ -21,8 +21,8 @@ export const BATON_WEAPONS: Weapon[] = [
   },
   {
     id: '374b342f-9959-4b3b-b9ed-6b8a0a388483',
-    type: 'baton',
-    name: i18n.t('cueBallName'),
+    type: 'personal',
+    name: i18n.t('weapon.personal.cueBallName'),
     hiding: 8,
     reachLevel: null,
     damage: {
@@ -38,8 +38,8 @@ export const BATON_WEAPONS: Weapon[] = [
   },
   {
     id: '525c915c-e9ce-4eee-b2c7-3a2c26dad6a0',
-    type: 'baton',
-    name: i18n.t('stunBatonName'),
+    type: 'personal',
+    name: i18n.t('weapon.personal.stunBatonName'),
     hiding: 4,
     reachLevel: 1,
     damage: {

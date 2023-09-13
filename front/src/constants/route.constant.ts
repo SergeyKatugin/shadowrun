@@ -1,5 +1,5 @@
 export enum RouteName {
-  Home = '/',
+  Welcome = '/',
 
   /** Create */
   Create = 'create',

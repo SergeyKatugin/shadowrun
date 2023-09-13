@@ -38,7 +38,7 @@ const AttributeCreateComponent = () => {
   useMount(() => {
     dispatch(
       setFooter({
-        text: t('attributeNext'),
+        text: t('menu.attributeNext'),
         action: () => {
           navigate(RouteName.SkillCreate);
         },
@@ -64,21 +64,21 @@ const AttributeCreateComponent = () => {
   return (
     <>
       <Text size="xl" as="h1" className="mb-s">
-        {t('attributeTitle')}
+        {t('attribute.title')}
       </Text>
       {!character.priority?.attributes ? (
         <Text size="m" className="mb-s" weight="semibold">
-          {t('notSelectedAttributePriority')}
+          {t('attribute.notSelected')}
         </Text>
       ) : (
         <>
           <Text size="s" as="span" className="mb-s">
-            {t('attributeDescription')}
+            {t('attribute.description')}
           </Text>
 
           <Layout className="mt-m mb-b align-center">
             <Text weight="bold">
-              {t('leftAttributes')}: {leftAttributes}
+              {t('attribute.left')}: {leftAttributes}
             </Text>
 
             <Button

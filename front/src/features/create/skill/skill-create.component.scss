@@ -1,0 +1,9 @@
+.skill-create {
+  display: grid;
+  gap: var(--space-s) 0;
+
+  &__item {
+    display: flex;
+    gap: var(--space-xs);
+  }
+}

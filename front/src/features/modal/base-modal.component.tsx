@@ -42,7 +42,7 @@ const BaseModalComponent = ({
           size="s"
           width="full"
           onClick={handleClose}
-          label={t('close')}
+          label={t('modal.close')}
         />
       </div>
     </div>

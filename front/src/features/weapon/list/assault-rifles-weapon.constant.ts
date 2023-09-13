@@ -3,7 +3,7 @@ import { Weapon } from '../weapon.type';
 export const ASSAULT_RIFLE_WEAPONS: Weapon[] = [
   {
     id: 'd2a96e60-d7b2-48e4-bfb3-7d583032377c',
-    type: 'rifle',
+    type: 'fire-arms',
     name: 'АК-97',
     hiding: 3,
     ammo: 38,
@@ -18,7 +18,7 @@ export const ASSAULT_RIFLE_WEAPONS: Weapon[] = [
   },
   {
     id: '3859a70d-1bfd-4243-ad84-4ecafaad1112',
-    type: 'rifle',
+    type: 'fire-arms',
     name: 'АК-98',
     hiding: 2,
     ammo: 38,
@@ -33,7 +33,7 @@ export const ASSAULT_RIFLE_WEAPONS: Weapon[] = [
   },
   {
     id: 'cc15b8dc-9c47-49bf-9a1a-80b0efaf0c97',
-    type: 'rifle',
+    type: 'fire-arms',
     name: 'FN HAR',
     hiding: 2,
     ammo: 35,

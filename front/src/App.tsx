@@ -4,7 +4,6 @@ import { presetGpnDefault, Theme } from '@consta/uikit/Theme';
 
 import { RouteName } from './constants/route.constant';
 import CharacterComponent from './features/character/character.component';
-import ContentComponent from './features/content/content.component';
 import AttributeCreateComponent from './features/create/attribute/attribute-create.component';
 import CommonCreateComponent from './features/create/common/common-create.component';
 import CreateComponent from './features/create/create.component';
@@ -15,12 +14,13 @@ import SkillCreateComponent from './features/create/skill/skill-create.component
 import FooterComponent from './features/footer/footer.component';
 import HeaderComponent from './features/header/header.component';
 import ModalsComponent from './features/modal/modals.component';
+import WelcomeComponent from './features/welcome/welcome.component';
 
 import './app.scss';
 
 const router = createBrowserRouter([
   {
-    path: RouteName.Home,
+    path: RouteName.Welcome,
     element: (
       <>
         <header>
@@ -40,8 +40,8 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: RouteName.Home,
-        element: <ContentComponent />,
+        path: RouteName.Welcome,
+        element: <WelcomeComponent />,
       },
       {
         path: RouteName.Create,
